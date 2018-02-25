@@ -6,4 +6,4 @@ docker run \
   --volume "$PWD":/code \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /tmp/cc:/tmp/cc \
-  ahmadnassri/codeclimate:fail-on-exit "$@" --dev
+  ahmadnassri/codeclimate:fail-on-exit "$@"
