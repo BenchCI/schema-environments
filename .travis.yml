@@ -1,0 +1,34 @@
+language: node_js
+
+services: docker
+
+node_js:
+  - 9
+  - 8
+  - 6
+
+cache:
+  directories:
+    - node_modules
+
+stages:
+  - cache
+  - test
+  - release
+
+before_install: export PATH=$PATH:$TRAVIS_BUILD_DIR/.scripts
+
+jobs:
+  include:
+    - stage: cache
+      node: 9
+      script: true
+
+    - stage: release
+      branch: master
+      node: 9
+      script: npx semantic-release
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
