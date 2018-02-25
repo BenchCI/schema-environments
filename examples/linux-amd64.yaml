@@ -1,0 +1,17 @@
+- hardware:
+    architecture: x64
+    cpu: 2
+    memory:
+      size: 16
+      units: Gb
+    network:
+    disk:
+      class: ssd
+      filesystem: tmpfs
+      size: 10Gi
+  os:
+    family: linux
+    name: ubuntu
+    version: 16.04
+  environment:
+    NODE_ENV: production
