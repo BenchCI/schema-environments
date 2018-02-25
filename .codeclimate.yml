@@ -9,9 +9,6 @@ plugins:
           patterns:
             - test/*.js
 
-  csslint:
-    enabled: true
-
   eslint:
     enabled: true
 
