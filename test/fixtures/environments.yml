@@ -1,0 +1,16 @@
+version: 1.0.0
+
+environments:
+  - name: my awesome linux
+    architecture: amd64
+    cpu: 2
+    memory: 16000
+    disk:
+      class: ssd
+      filesystem: tmpfs
+      size: 10000
+    os:
+      name: ubuntu
+      version: "16.04"
+    env:
+      NODE_ENV: production

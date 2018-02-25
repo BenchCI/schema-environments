@@ -1,28 +1,44 @@
 {
-  "name": "env.yml",
-  "version": "0.1.0",
-  "description": "Describe an environment",
-  "main": "index.js",
-  "scripts": {
-    "test": "ava"
-  },
+  "version": "0.0.0-development",
+  "name": "@benchci/env-schema",
+  "description": "JSON Schema for Bench CI configuration.",
+  "author": "Ahmad Nassri <ahmad@benchci.com> (https://www.bench.ci/)",
+  "homepage": "https://github.com/benchci/env-schema",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/benchci/env.yml.git"
+    "url": "https://github.com/benchci/env-schema.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/benchci/env.yml/issues"
+  "main": "spec/latest/schema.json",
+  "keywords": [
+    "bench",
+    "benchci",
+    "benchmark",
+    "benchmarkci",
+    "jsonschema",
+    "schema"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
-  "homepage": "https://github.com/benchci/env.yml#readme",
-  "ava": {
-    "failFast": true
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "spec"
+  ],
+  "bugs": {
+    "url": "https://github.com/benchci/env-schema/issues"
+  },
+  "scripts": {
+    "pretest": "npm run test:codeclimate",
+    "test": "npm run test:tap",
+    "test:codeclimate": ".scripts/codeclimate analyze",
+    "test:tap": "tap test --100 --coverage-report=lcov --no-browser"
   },
   "devDependencies": {
     "ajv": "^6.1.1",
-    "ava": "^1.0.0-beta.3",
-    "js-yaml": "^3.10.0"
-  },
-  "dependencies": {}
+    "js-yaml": "^3.10.0",
+    "tap": "^11.1.1"
+  }
 }
