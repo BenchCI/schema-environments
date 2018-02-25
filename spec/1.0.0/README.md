@@ -111,6 +111,8 @@ name             | type      | required | default | description
 
 ### disk
 
+Disk & Filesystem configuration
+
 ```json
 {
   "size": 100,
@@ -141,6 +143,8 @@ id      | description
 ---
 
 ### os
+
+Operating System Configuration
 
 ```json
 {
