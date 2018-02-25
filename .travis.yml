@@ -25,9 +25,9 @@ jobs:
       script: true
 
     - stage: release
-      branch: master
       node: 9
       script: npx semantic-release
+      if: branch = master
 
 branches:
   except:
