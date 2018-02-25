@@ -4,7 +4,7 @@
 
 Environments files are required to be saved in `UTF-8` encoding, other encodings are forbidden. Allowed formats are limited to [`JSON`][json] & [`YAML`][yaml].
 
-### File Naming:
+### File Naming
 
 Acceptable file name must match the following pattern:
 
