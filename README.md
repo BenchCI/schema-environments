@@ -15,7 +15,7 @@ version                | status
 Available as an `npm` package for validation purposes, compatible with any [JSON Schema][] validation tool
 
 ```bash
-npm install --production --save @benchci/env-schema
+npm install --production --save @benchci/environments
 ```
 
 ---
