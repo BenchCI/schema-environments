@@ -168,7 +168,12 @@
             "title": "Environment Variables",
             "description": "List of environment variables at system boot",
             "type": "object",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "examples": [
+              {
+                "NODE_ENV": "production"
+              }
+            ]
           }
         }
       }
