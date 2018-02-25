@@ -4,6 +4,18 @@
 
 Environments files are required to be saved in `UTF-8` encoding, other encodings are forbidden. Allowed formats are limited to [`JSON`][json] & [`YAML`][yaml].
 
+Summary of Bench object types:
+
+- [version](#version)
+- [environments](#environments)
+  - [name](#environment)
+  - [architecture](#environment)
+  - [cpu](#environment)
+  - [memory](#environment)
+  - [disk](#disk)
+  - [os](#os)
+  - [env](#environment)
+
 ### File Naming
 
 Acceptable file name must match the following pattern:
@@ -14,81 +26,26 @@ Acceptable file name must match the following pattern:
 
 ###### Example
 
-- `environments.json`
-- `.environments.yml`
-- `.environmentsrc`
-
-###### YAML Example
-
-> ```yml
-> version: 1.0.0
->
-> environments:
->   - name: my awesome linux
->     architecture: amd64
->     cpu: 2
->     memory: 16000
->     disk:
->       class: ssd
->       filesystem: tmpfs
->       size: 10000
->     os:
->       name: ubuntu
->       version: "16.04"
->     env:
->       NODE_ENV: production
-> ```
-
-###### JSON Example
-
-> ```json
-> {
->   "version": "1.0.0",
->   "environments": [
->     {
->       "name": "my awesome linux",
->       "architecture": "amd64",
->       "cpu": 2,
->       "memory": 16000,
->       "disk": {
->         "class": "ssd",
->         "filesystem": "tmpfs",
->         "size": 10000
->       },
->       "os": {
->         "name": "ubuntu",
->         "version": "16.04"
->       },
->       "env": {
->         "NODE_ENV": "production"
->       }
->     }
->   ]
-> }
-> ```
+- [`.environmentsrc`](#json-example)
+- [`environments.json`](#json-example)
+- [`.environments.yml`](#yaml-example)
 
 ---
 
-### `environments.json`
+## `environments.json`
 
-name             | type     | required | default | description               
----------------- | -------- | -------- | ------- | --------------------------
-**version**      | `Object` | ✔        | `-`     | Schema [Version](#version)
-**environments** | `Object` | ✖        | `-`     | [Jobs](#jobs)             
-
----
+name             | type     | required | default | description                  
+---------------- | -------- | -------- | ------- | -----------------------------
+**version**      | `Object` | ✔        | `-`     | Schema [Version](#version)   
+**environments** | `Object` | ✖        | `-`     | [Environments](#environments)
 
 ### Version
 
 The version of this spec your Environments file uses. Format must follow [semver][].
 
----
-
 ### Environments
 
 An array that contains at least one [`environment`](#environment) object.
-
----
 
 ### Environment
 
@@ -116,9 +73,7 @@ name             | type      | required | default | description
 **os**           | `Object`  | ✔        | `-`     | an [`os`](#os) object                          
 **environment**  | `Map`     | ✖        | `-`     | Environmental variables                        
 
----
-
-### disk
+### Disk
 
 Disk & Filesystem configuration
 
@@ -149,9 +104,7 @@ id      | description
 `ntfs`  | New Technology File System 
 `tmpfs` | Temporary file storage     
 
----
-
-### os
+### OS
 
 Operating System Configuration
 
@@ -169,8 +122,55 @@ version | `String` | ✔        | `-`     | Operating System version
 
 ---
 
+###### JSON Example
+
+> ```json
+> {
+>   "version": "1.0.0",
+>   "environments": [
+>     {
+>       "name": "my awesome linux",
+>       "architecture": "amd64",
+>       "cpu": 2,
+>       "memory": 16000,
+>       "disk": {
+>         "class": "ssd",
+>         "filesystem": "tmpfs",
+>         "size": 10000
+>       },
+>       "os": {
+>         "name": "ubuntu",
+>         "version": "16.04"
+>       },
+>       "env": {
+>         "NODE_ENV": "production"
+>       }
+>     }
+>   ]
+> }
+> ```
+
+###### YAML Example
+
+> ```yml
+> version: 1.0.0
+>
+> environments:
+>   - name: my awesome linux
+>     architecture: amd64
+>     cpu: 2
+>     memory: 16000
+>     disk:
+>       class: ssd
+>       filesystem: tmpfs
+>       size: 10000
+>     os:
+>       name: ubuntu
+>       version: "16.04"
+>     env:
+>       NODE_ENV: production
+> ```
+
 [json]: https://www.json.org/
-
 [semver]: https://semver.org
-
 [yaml]: http://www.yaml.org/
