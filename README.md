@@ -1,4 +1,4 @@
-# Environments Schema [![version][npm-version]][npm-url] [![License][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Downloads][npm-downloads]][npm-url]
+# Environments Schema [![version][npm-version]][npm-url] [![License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
 > Defines an `environments.yml` configuration file format used as a cross-platform means of describing machine execution environments.
 
@@ -28,7 +28,6 @@ npm install --production --save @benchci/environments
 [license-image]: https://img.shields.io/github/license/benchci/environments.svg?style=flat-square
 [license-url]: http://choosealicense.com/licenses/isc/
 
-[npm-downloads]: https://img.shields.io/npm/dm/@benchci/environments.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/@benchci/environments
 [npm-version]: https://img.shields.io/npm/v/@benchci/environments.svg?style=flat-square
 
