@@ -28,6 +28,7 @@ jobs:
       node: 9
       script: npx semantic-release
       if: branch = master
+      if: type IN (push)
 
 branches:
   except:
