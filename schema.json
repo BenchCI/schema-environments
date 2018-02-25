@@ -10,7 +10,18 @@
     ],
     "properties": {
       "os": {
-        "type": "object"
+        "type": "object",
+        "required": [
+          "family"
+        ],
+        "properties": {
+          "family": {
+            "type": "string",
+            "enum": [
+              "linux"
+            ]
+          }
+        }
       },
       "environment": {
         "type": "object",
@@ -22,36 +33,51 @@
       },
       "hardware": {
         "type": "object",
+        "required": [
+          "architecture",
+          "cpu",
+          "memory"
+        ],
         "properties": {
           "architecture": {
             "type": "string",
-            "oneOf": [
-              {"value": "x64"}
+            "enum": [
+              "x64"
             ]
+          },
+          "network": {
+            "type": "object"
+          },
+          "disk": {
+            "type": "object",
+            "properties": {
+              "class": {
+                "type": "string",
+                "enum": [
+                  "ssd"
+                ]
+              }
+            }
           },
           "memory": {
             "type": "object",
+            "required": [
+              "size",
+              "units"
+            ],
             "properties": {
               "size": {
                 "type": "integer"
               },
               "units": {
                 "type": "string",
-                "oneOf": [
-                  {"value": "Gb"}
+                "enum": [
+                  "Gb"
                 ]
               }
-            },
-            "required": [
-              "size",
-              "units"
-            ]
+            }
           }
-        },
-        "required": [
-          "architecture",
-          "memory"
-        ]
+        }
       }
     }
   }],

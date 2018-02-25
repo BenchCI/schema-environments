@@ -4,11 +4,12 @@
     memory:
       size: 16
       units: Gb
-    network:
+    network: {}
     disk:
       class: ssd
       filesystem: tmpfs
-      size: 10Gi
+      size: 10
+      units: Gi
   os:
     family: linux
     name: ubuntu
