@@ -1,5 +1,5 @@
 repository:
-  name: environments
+  name: schema-environments
   description: JSON Schema for environments.yml
   topics: schema, benchci, environments
   homepage: https://schemas.bench.ci/
