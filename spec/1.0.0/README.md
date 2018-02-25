@@ -69,19 +69,28 @@ Acceptable file name must match the following pattern:
 
 ---
 
-### version
+### `environments.json`
+
+name             | type     | required | default | description               
+---------------- | -------- | -------- | ------- | --------------------------
+**version**      | `Object` | ✔        | `-`     | Schema [Version](#version)
+**environments** | `Object` | ✖        | `-`     | [Jobs](#jobs)             
+
+---
+
+### Version
 
 The version of this spec your Environments file uses. Format must follow [semver][].
 
 ---
 
-### environments
+### Environments
 
 An array that contains at least one [`environment`](#environment) object.
 
 ---
 
-### environment
+### Environment
 
 ```json
 {
