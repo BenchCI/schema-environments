@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.bench.ci/environments/1.0.0",
+  "$id": "#https://schemas.bench.ci/environments/1.0.0",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Environments Schema",
   "description": "JSON Schema for environment descriptions",
@@ -11,18 +11,32 @@
   },
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "version",
+    "environments"
+  ],
   "properties": {
     "$schema": {
       "type": "string"
     },
     "version": {
+      "$id": "#/properties/version",
+      "title": "Schema Version",
+      "description": "Used to determine what Environments Schema to validate against",
       "type": "string",
       "pattern": "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
     },
     "environments": {
+      "$id": "#/properties/environments",
+      "title": "Supported environments",
+      "description": "List of supported environments",
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
+        "$id": "#/properties/environments/items",
+        "title": "Environment Item",
+        "description": "Detailed Environment data",
         "type": "object",
         "required": [
           "name",
@@ -30,9 +44,19 @@
         ],
         "properties": {
           "name": {
-            "$ref": "#/definitions/nonEmptyString"
+            "$id": "#/properties/environments/items/name",
+            "title": "Name",
+            "description": "A unqiue label to use for idenfitying this environment",
+            "$ref": "#/definitions/nonEmptyString",
+            "examples": [
+              "Ubuntu Latest",
+              "Windows Server"
+            ]
           },
           "architecture": {
+            "$id": "#/properties/environments/items/architecture",
+            "title": "Architecture",
+            "description": "CPU Architecture identifier",
             "type": "string",
             "default": "amd64",
             "enum": [
@@ -41,24 +65,54 @@
             ]
           },
           "cpu": {
+            "$id": "#/properties/environments/items/cpu",
+            "title": "CPU",
+            "description": "number of CPU cores",
             "type": "integer",
             "minimum": 1,
-            "default": 2
+            "default": 2,
+            "examples": [
+              2,
+              4,
+              8
+            ]
           },
           "memory": {
+            "$id": "#/properties/environments/items/memory",
+            "title": "Memory",
+            "description": "Amount of system memory in Megabytes",
             "type": "integer",
             "minimum": 1,
-            "default": 100
+            "default": 100,
+            "examples": [
+              100,
+              1000,
+              16000
+            ]
           },
           "disk": {
+            "$id": "#/properties/environments/items/disk",
+            "title": "Disk",
+            "description": "Disk & Filesystem Configuration",
             "type": "object",
             "properties": {
               "size": {
+                "$id": "#/properties/environments/items/disk/properties/size",
+                "title": "Size",
+                "description": "Size of disk in Megabytes",
                 "type": "integer",
                 "minimum": 1,
-                "default": 100
+                "default": 100,
+                "examples": [
+                  100,
+                  1000,
+                  5000
+                ]
               },
               "class": {
+                "$id": "#/properties/environments/items/disk/properties/class",
+                "title": "Disk Class",
+                "description": "Class of the Disk",
                 "type": "string",
                 "default": "ssd",
                 "enum": [
@@ -68,6 +122,9 @@
                 ]
               },
               "filesystem": {
+                "$id": "#/properties/environments/items/disk/properties/filesystem",
+                "title": "Disk Filesystem",
+                "description": "Disk filesystem format",
                 "type": "string",
                 "enum": [
                   "apfs",
@@ -83,6 +140,9 @@
             }
           },
           "os": {
+            "$id": "#/properties/environments/items/os",
+            "title": "Operating System",
+            "description": "Operating System configuration",
             "type": "object",
             "required": [
               "name",
@@ -90,14 +150,23 @@
             ],
             "properties": {
               "name": {
-                "$ref": "#/definitions/nonEmptyString"
+                "$id": "#/properties/environments/items/os/properties/name",
+                "$ref": "#/definitions/nonEmptyString",
+                "title": "OS Name",
+                "description": "Operating System Name"
               },
               "version": {
-                "$ref": "#/definitions/nonEmptyString"
+                "$id": "#/properties/environments/items/os/properties/version",
+                "$ref": "#/definitions/nonEmptyString",
+                "title": "OS Version",
+                "description": "Operating System Version"
               }
             }
           },
           "env": {
+            "$id": "#/properties/environments/items/env",
+            "title": "Environment Variables",
+            "description": "List of environment variables at system boot",
             "type": "object",
             "uniqueItems": true
           }
