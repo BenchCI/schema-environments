@@ -3,10 +3,10 @@
   "name": "@benchci/environments",
   "description": "JSON Schema for Bench CI configuration.",
   "author": "Ahmad Nassri <ahmad@benchci.com> (https://www.bench.ci/)",
-  "homepage": "https://github.com/benchci/env-schema",
+  "homepage": "https://github.com/benchci/environments",
   "repository": {
     "type": "git",
-    "url": "https://github.com/benchci/env-schema.git"
+    "url": "https://github.com/benchci/environments.git"
   },
   "license": "ISC",
   "main": "spec/latest/schema.json",
@@ -28,7 +28,7 @@
     "spec"
   ],
   "bugs": {
-    "url": "https://github.com/benchci/env-schema/issues"
+    "url": "https://github.com/benchci/environments/issues"
   },
   "scripts": {
     "pretest": "npm run test:codeclimate",
