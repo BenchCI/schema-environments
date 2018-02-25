@@ -15,7 +15,7 @@ version                | status
 Available as an `npm` package for validation purposes, compatible with any [JSON Schema][] validation tool
 
 ```bash
-npm install --production --save @benchci/environments
+npm install --production --save @benchci/schema-environments
 ```
 
 ---
@@ -25,13 +25,13 @@ npm install --production --save @benchci/environments
 > Github: [@BenchCI](https://github.com/benchci) •
 > Twitter: [@Bench_CI](https://twitter.com/bench_ci)
 
-[license-image]: https://img.shields.io/github/license/benchci/environments.svg?style=flat-square
+[license-image]: https://img.shields.io/github/license/benchci/schema-environments.svg?style=flat-square
 [license-url]: http://choosealicense.com/licenses/isc/
 
-[npm-url]: https://www.npmjs.com/package/@benchci/environments
-[npm-version]: https://img.shields.io/npm/v/@benchci/environments.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@benchci/schema-environments
+[npm-version]: https://img.shields.io/npm/v/@benchci/schema-environments.svg?style=flat-square
 
-[travis-image]: https://img.shields.io/travis/BenchCI/environments.svg?style=flat-square
-[travis-url]: https://travis-ci.org/BenchCI/environments
+[travis-image]: https://img.shields.io/travis/BenchCI/schema-environments.svg?style=flat-square
+[travis-url]: https://travis-ci.org/BenchCI/schema-environments
 
 [json schema]: http://json-schema.org
