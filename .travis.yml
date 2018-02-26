@@ -28,6 +28,7 @@ jobs:
 
     - stage: release
       node: 9
+      install: npm install --production
       script: npx semantic-release
       if: branch = master
       if: type IN (push)
