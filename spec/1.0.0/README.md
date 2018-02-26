@@ -6,15 +6,15 @@ Environments files are required to be saved in `UTF-8` encoding, other encodings
 
 Summary of Bench object types:
 
-- [version](#version)
-- [environments](#environments)
-  - [name](#environment)
-  - [architecture](#environment)
-  - [cpu](#environment)
-  - [memory](#environment)
-  - [disk](#disk)
-  - [os](#os)
-  - [env](#environment)
+- [environments.json](#environmentsjson)
+  - [environments](#environments)
+    - [name](#environment)
+    - [architecture](#environment)
+    - [cpu](#environment)
+    - [memory](#environment)
+    - [disk](#disk)
+    - [os](#os)
+    - [env](#environment)
 
 ### File Naming
 
@@ -34,18 +34,17 @@ Acceptable file name must match the following pattern:
 
 ## `environments.json`
 
-name             | type     | required | default | description                  
----------------- | -------- | -------- | ------- | -----------------------------
-**version**      | `Object` | ✔        | `-`     | Schema [Version](#version)   
-**environments** | `Object` | ✖        | `-`     | [Environments](#environments)
+```json
+{
+  "version": "1.0.0",
+  "environments": []
+}
+```
 
-### Version
-
-The version of this spec your Environments file uses. Format must follow [semver][].
-
-### Environments
-
-An array that contains at least one [`environment`](#environment) object.
+name             | type     | required | default | description                                    
+---------------- | -------- | -------- | ------- | -----------------------------------------------
+**version**      | `String` | ✔        | `-`     | Spec version. Format must follow [semver][]    
+**environments** | `Array`  | ✖        | `-`     | An array of [Environment](#environment) Objects
 
 ### Environment
 
@@ -71,7 +70,7 @@ name             | type      | required | default | description
 **memory**       | `Integer` | ✖        | `100`   | amount of system memory _(in Megabytes)_       
 **disk**         | `Object`  | ✖        | `{}`    | a [`disk`](#disk) object                       
 **os**           | `Object`  | ✔        | `-`     | an [`os`](#os) object                          
-**environment**  | `Map`     | ✖        | `-`     | Environmental variables                        
+**env**          | `Map`     | ✖        | `-`     | Environmental variables                        
 
 ### Disk
 
@@ -85,11 +84,11 @@ Disk & Filesystem configuration
 }
 ```
 
-name       | Type      | required | default | Description                                           
----------- | --------- | -------- | ------- | ------------------------------------------------------
-size       | `Integer` | ✖        | `100`   | Size of disk in _(in Megabytes)_                      
-class      | `String`  | ✖        | `ssd`   | Class of disk _[`hdd`, `ssd`, `sshd`]_                
-filesystem | `String`  | ✖        | `tmpfs` | disk file system format _([see below](#file-systems))_
+name           | type      | required | default | description                                           
+-------------- | --------- | -------- | ------- | ------------------------------------------------------
+**size**       | `Integer` | ✖        | `100`   | Size of disk in _(in Megabytes)_                      
+**class**      | `String`  | ✖        | `ssd`   | Class of disk _[`hdd`, `ssd`, `sshd`]_                
+**filesystem** | `String`  | ✖        | `tmpfs` | disk file system format _([see below](#file-systems))_
 
 #### File Systems
 
@@ -115,10 +114,10 @@ Operating System Configuration
 }
 ```
 
-name    | Type     | required | default | Description             
-------- | -------- | -------- | ------- | ------------------------
-name    | `String` | ✔        | `-`     | Operating System name   
-version | `String` | ✔        | `-`     | Operating System version
+name        | type     | required | default | description             
+----------- | -------- | -------- | ------- | ------------------------
+**name**    | `String` | ✔        | `-`     | Operating System name   
+**version** | `String` | ✔        | `-`     | Operating System version
 
 ---
 
